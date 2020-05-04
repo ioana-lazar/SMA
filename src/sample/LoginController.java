@@ -17,14 +17,14 @@ public class Controller {
         }
         else
         {
-            System.out.println("Logged in!");                              //intra in aplicatie acum
-            //se inchide fereastra de log in
+            //open window after log in
+
         }
     }
 
     public void registerClicked()
     {
-        User user = new User(namefield.getText(),  database.encodePassword(namefield.getText(), passwordfield.getText()));
+        User user = new User(namefield.getText(), passwordfield.getText());// database.encodePassword(namefield.getText(), passwordfield.getText()));
 
         if(database.containsUsername(user.getName()))
         {
