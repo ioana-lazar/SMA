@@ -24,7 +24,8 @@ public class Controller {
 
     public void registerClicked()
     {
-        User user = new User(namefield.getText(), passwordfield.getText());
+        User user = new User(namefield.getText(),  database.encodePassword(namefield.getText(), passwordfield.getText()));
+
         if(database.containsUsername(user.getName()))
         {
             popUp.display("Registration failed", "Username already exists");
@@ -37,6 +38,7 @@ public class Controller {
             {
                 database.addUser(user);
                 popUp.display("Registration succeeded", "User " + user.getName() + " is now registered!");
+                System.out.println(database);
             }
             else
             {

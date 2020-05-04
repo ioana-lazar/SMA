@@ -1,5 +1,9 @@
 package sample;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class User {
     private String name;
     private String password;
@@ -53,4 +57,6 @@ public class User {
     {
         return (o instanceof User) && ( ((User) o).name.equals(this.name) && ((User) o).password.equals(this.password));
     }
+
+
 }
