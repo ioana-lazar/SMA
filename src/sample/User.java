@@ -36,7 +36,7 @@ public class User {
     }
 
     public boolean checkUsername(String username) {
-        if (username.length() <= 5 || username.length() > 15)
+        if ((username.length() <= 5) || (username.length() > 15))
         {
             return false;
         }
@@ -48,7 +48,7 @@ public class User {
 
     public boolean checkPassword(String password)
     {
-        return password.length() >= 7 && password.length() <= 12;
+        return (password.length() >= 7) && (password.length() <= 12);
     }
 
 

@@ -3,7 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane prefHeight="148.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane prefHeight="148.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="-Infinity" prefWidth="150.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="485.0" minWidth="10.0" prefWidth="447.0" />
@@ -40,7 +40,7 @@
       </Label>
       <HBox prefHeight="96.0" prefWidth="431.0" spacing="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Button mnemonicParsing="false" onAction="#loginClicked" text="Log In" />
+            <Button fx:id="loginbutton" mnemonicParsing="false" onAction="#loginClicked" text="Log In" />
             <Button mnemonicParsing="false" onAction="#registerClicked" text="Register" />
          </children>
          <padding>

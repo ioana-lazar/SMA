@@ -1,14 +1,23 @@
 package sample;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-public class Controller {
+import java.io.IOException;
+
+public class LoginController {
     public TextField namefield, passwordfield;
     Database database = new Database();
-    PopUp popUp;
+    private PopUp popUp;
+    public Button loginbutton;
 
-    public void loginClicked(){
-        User user = new User(namefield.getText(), passwordfield.getText());
+    public void loginClicked() throws IOException {
+        User user = new User(namefield.getText(), database.encodePassword(namefield.getText(), passwordfield.getText()));
         if(!database.contains(user))
         {
             popUp.display("Login failed", "User or password incorrect");
@@ -17,14 +26,21 @@ public class Controller {
         }
         else
         {
-            //open window after log in
+            //enter app
+            VBox layout= FXMLLoader.load(getClass().getResource("appwindow.fxml"));
+            Stage oldstage = (Stage) loginbutton.getScene().getWindow();
+            oldstage.close();
 
+            Stage newstage = new Stage();
+            newstage.setScene(new Scene(layout, 600, 370));
+            newstage.setTitle("Service Manager");
+            newstage.show();
         }
     }
 
     public void registerClicked()
     {
-        User user = new User(namefield.getText(), passwordfield.getText());// database.encodePassword(namefield.getText(), passwordfield.getText()));
+        User user = new User(namefield.getText(), database.encodePassword(namefield.getText(), passwordfield.getText()));
 
         if(database.containsUsername(user.getName()))
         {
@@ -34,11 +50,10 @@ public class Controller {
         }
         else
         {
-            if(user.checkUsername(user.getName()) && user.checkPassword(user.getPassword()))
+            if(user.checkUsername(user.getName()) && user.checkPassword(passwordfield.getText()))
             {
                 database.addUser(user);
                 popUp.display("Registration succeeded", "User " + user.getName() + " is now registered!");
-                System.out.println(database);
             }
             else
             {
