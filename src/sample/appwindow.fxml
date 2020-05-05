@@ -7,20 +7,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AppController">
    <children>
-      <TableView prefHeight="370.0" prefWidth="600.0">
+      <TableView fx:id="table" prefHeight="370.0" prefWidth="600.0">
         <columns>
-          <TableColumn prefWidth="233.0" text="C1" />
-          <TableColumn prefWidth="179.0" text="C2" />
-            <TableColumn prefWidth="187.0" text="Column X" />
+          <TableColumn fx:id="namecolumn" prefWidth="233.0" text="Service" />
+          <TableColumn fx:id="pricecolumn" prefWidth="179.0" text="Price" />
+          <TableColumn fx:id="datecolumn" prefWidth="187.0" text="Renewal date" />
         </columns>
       </TableView>
       <HBox prefHeight="49.0" prefWidth="584.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" text="Add" />
+            <Button mnemonicParsing="false" onAction="#add" text="Add" />
             <Region prefHeight="29.0" prefWidth="60.0" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
             <Region prefHeight="29.0" prefWidth="56.0" HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" text="Manage" />
          </children>
