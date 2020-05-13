@@ -1,13 +1,17 @@
-package sample;
+package src.main;
 
 import javafx.scene.control.TextField;
+import org.json.simple.parser.ParseException;
+import src.main.Database;
+
+import java.io.IOException;
 
 public class Controller {
     public TextField namefield, passwordfield;
     Database database = new Database();
     PopUp popUp;
 
-    public void loginClicked(){
+    public void loginClicked() {
         User user = new User(namefield.getText(), passwordfield.getText());
         if(!database.contains(user))
         {
@@ -22,8 +26,7 @@ public class Controller {
         }
     }
 
-    public void registerClicked()
-    {
+    public void registerClicked() {
         User user = new User(namefield.getText(),  database.encodePassword(namefield.getText(), passwordfield.getText()));
 
         if(database.containsUsername(user.getName()))
