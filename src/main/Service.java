@@ -1,4 +1,4 @@
-package sample;
+package src.main;
 
 class Date{
     int day, month, year;

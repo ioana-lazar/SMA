@@ -1,8 +1,4 @@
-package sample;
-
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+package src.main;
 
 public class User {
     private String name;
@@ -30,10 +26,6 @@ public class User {
         return password;
     }
 
-    public String toString()
-    {
-        return name + " " + password + "\n";
-    }
 
     public boolean checkUsername(String username) {
         if ((username.length() <= 5) || (username.length() > 15))
@@ -58,5 +50,11 @@ public class User {
         return (o instanceof User) && ( ((User) o).name.equals(this.name) && ((User) o).password.equals(this.password));
     }
 
-
+    public String toString()
+    {
+        return "UserInfo{" +
+                "name='" + name + '\'' +
+                ", password='" + password + '\''+
+                '}';
+    }
 }

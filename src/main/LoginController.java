@@ -1,9 +1,13 @@
-package sample;
+package src.main;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import org.json.simple.parser.ParseException;
+import src.main.Database;
+
+import java.io.IOException;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -18,6 +22,7 @@ public class LoginController {
 
     public void loginClicked() throws IOException {
         User user = new User(namefield.getText(), database.encodePassword(namefield.getText(), passwordfield.getText()));
+
         if(!database.contains(user))
         {
             popUp.display("Login failed", "User or password incorrect");
@@ -38,9 +43,8 @@ public class LoginController {
         }
     }
 
-    public void registerClicked()
-    {
-        User user = new User(namefield.getText(), database.encodePassword(namefield.getText(), passwordfield.getText()));
+    public void registerClicked() {
+        User user = new User(namefield.getText(),  database.encodePassword(namefield.getText(), passwordfield.getText()));
 
         if(database.containsUsername(user.getName()))
         {

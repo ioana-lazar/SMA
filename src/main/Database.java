@@ -1,21 +1,54 @@
-package sample;
+package src.main;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class Database {
-    private ArrayList<User> UserList = new ArrayList<>();
+    private static List<User> UserList;
 
-    public void addUser(User user)
+    private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
+
+    public static void loadUsersFromFile() throws IOException           //should work as an initializer
     {
-        UserList.add(user);
+
+        System.out.println(USERS_PATH);
+        if (!Files.exists(USERS_PATH)) {
+
+            FileUtils.copyURLToFile(((Database.class.getClassLoader()).getResource("users.json")), USERS_PATH.toFile());
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        UserList = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {
+        });
     }
 
-    public void storeToFile() // String filename
+    public void addUser(User user)           //add to json file, not to arraylist of users
     {
-        System.out.println("De facut");
+
+        UserList.add(user);
+        persistUsers();
+    }
+
+    private void persistUsers()
+    {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), UserList);
+        } catch (IOException e) {
+            System.out.println("Dumnezeu");
+        }
     }
 
     public boolean contains(User user)

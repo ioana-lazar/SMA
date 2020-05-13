@@ -1,4 +1,4 @@
-package sample;
+package src.main;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-
+import src.main.Service;
 
 public class ServiceList {
     ArrayList<Service> services = new ArrayList<>();

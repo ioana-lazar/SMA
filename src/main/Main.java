@@ -1,4 +1,4 @@
-package sample;
+package src.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        Database.loadUsersFromFile();
+
         Parent root = FXMLLoader.load(getClass().getResource("loginwindow.fxml"));
+
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(new Scene(root, 550, 150));
         primaryStage.show();

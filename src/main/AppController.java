@@ -1,4 +1,4 @@
-package sample;
+package src.main;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,8 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-
+import src.main.Service;
+import src.main.Date;
+import src.main.ServiceList;
 
 public class AppController {
     public TableColumn<Service, String> namecolumn;
