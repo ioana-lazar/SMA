@@ -15,7 +15,8 @@ public class Main extends Application {
 
         Database.loadUsersFromFile();
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginwindow.fxml"));
+
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(new Scene(root, 550, 150));
         primaryStage.show();
