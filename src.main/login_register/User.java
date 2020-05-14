@@ -1,16 +1,20 @@
+package login_register;
+
 public class User {
     private String name;
     private String password;
+    private String role;
 
     public User(){
         this.name = "";
         this.password = "";
     }
 
-    public User(String name, String password)
+    public User(String name, String password, String role)
     {
         this.name = name;
         this.password = password;
+        this.role = role;
     }
 
     public void setName(String name) {
@@ -50,7 +54,7 @@ public class User {
 
     public boolean equals(Object o)
     {
-        return (o instanceof User) && ( ((User) o).name.equals(this.name) && ((User) o).password.equals(this.password));
+        return (o instanceof User) && ( ((User) o).name.equals(this.name) && ((User) o).password.equals(this.password) && ((User) o).role.equals(this.role));
     }
 
     public String toString()
@@ -58,6 +62,15 @@ public class User {
         return "UserInfo{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\''+
+                ", role='" + role + '\''+
                 '}';
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import login_register.Database;
 
 public class Main extends Application {
 
@@ -13,7 +14,7 @@ public class Main extends Application {
 
         Database.loadUsersFromFile();
 
-        Parent root = FXMLLoader.load(getClass().getResource("loginwindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login_register/loginwindow.fxml"));
 
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(new Scene(root, 550, 150));
