@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppController">
+   <children>
+      <TableView fx:id="table" prefHeight="370.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="namecolumn" prefWidth="233.0" text="Service" />
+          <TableColumn fx:id="pricecolumn" prefWidth="179.0" text="Price" />
+          <TableColumn fx:id="datecolumn" prefWidth="187.0" text="Renewal date" />
+        </columns>
+      </TableView>
+      <HBox prefHeight="49.0" prefWidth="584.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#add" text="Add" />
+            <Region prefHeight="29.0" prefWidth="60.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
+            <Region prefHeight="29.0" prefWidth="56.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" text="Manage" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
