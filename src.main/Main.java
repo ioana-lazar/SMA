@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import login_register.Database;
+import post_login.ServiceList;
 
 public class Main extends Application {
 
@@ -13,6 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Database.loadUsersFromFile();
+        ServiceList.loadServicesFromFile();
 
         Parent root = FXMLLoader.load(getClass().getResource("login_register/loginwindow.fxml"));
 

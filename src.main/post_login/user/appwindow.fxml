@@ -3,11 +3,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="post_login.user.AppController">
    <children>
       <TableView fx:id="table" prefHeight="370.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="namecolumn" prefWidth="233.0" text="Service" />
+          <TableColumn fx:id="namecolumn" prefWidth="233.0" text="Service Name" />
           <TableColumn fx:id="pricecolumn" prefWidth="179.0" text="Price" />
           <TableColumn fx:id="datecolumn" prefWidth="187.0" text="Renewal date" />
         </columns>
