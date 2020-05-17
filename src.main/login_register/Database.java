@@ -47,7 +47,7 @@ public class Database {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), UserList);
         } catch (IOException e) {
-            System.out.println("Dumnezeu");
+            System.out.println("Can't write user to file, user persists");
         }
     }
 

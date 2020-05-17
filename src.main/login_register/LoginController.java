@@ -23,31 +23,41 @@ public class LoginController {
 
     public void initialize()
     {
-        rolefield.getItems().addAll("User", "Staff");
+        rolefield.getItems().addAll("User", "Staff");       //initializes role in the login / register window
         rolefield.setValue("User");
     }
 
     public void loginClicked() throws IOException {
         User user = new User(namefield.getText(), database.encodePassword(namefield.getText(), passwordfield.getText()), rolefield.getValue());
 
-        if(!database.contains(user))
-        {
-            popUp.display("Login failed", "User or password incorrect");
-            namefield.clear();
-            passwordfield.clear();
-        }
-        else
-        {
-            //enter app
-            VBox layout= FXMLLoader.load(getClass().getResource("../appwindow.fxml")); // incarca un vertical box, codul il ia din fisierul ala .fxml
-            Stage oldstage = (Stage) loginbutton.getScene().getWindow();    // inchidem login window
-            oldstage.close();
 
-            Stage newstage = new Stage();
-            newstage.setScene(new Scene(layout, 600, 370));     // nou window pentru aplicatie
-            newstage.setTitle("Service Manager");
-            newstage.show();
-        }
+            if(!database.contains(user))
+            {
+                popUp.display("Login failed", "User or password incorrect");
+                namefield.clear();
+                passwordfield.clear();
+            }
+            else
+            {
+                //enter app
+                VBox layout;
+                if(rolefield.getValue().equals("User"))
+                {
+                    layout = FXMLLoader.load(getClass().getResource("../post_login/user/appwindow.fxml")); // incarca un vertical box, codul il ia din fisierul ala .fxml
+                }
+                else
+                {
+                    layout = FXMLLoader.load(getClass().getResource("../post_login/staff/appwindowStaff.fxml"));
+
+                }
+                Stage oldstage = (Stage) loginbutton.getScene().getWindow();    // inchidem login window
+                oldstage.close();
+
+                Stage newstage = new Stage();
+                newstage.setScene(new Scene(layout, 600, 370));     // nou window pentru aplicatie
+                newstage.setTitle("List of services");
+                newstage.show();
+            }
     }
 
     public void registerClicked() {
